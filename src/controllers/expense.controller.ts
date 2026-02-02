@@ -28,7 +28,8 @@ export class ExpenseController {
     }
 
     getAllExpenses(req: Request, res: Response) {
-        res.json(this.expenseModel.findAll());
+        const expenses = this.expenseModel.findAll(req.query);
+        res.json(expenses);
     }
 
     getExpenseById(req: Request, res: Response) {
